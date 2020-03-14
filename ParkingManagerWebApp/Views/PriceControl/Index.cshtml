@@ -1,0 +1,70 @@
+@model List<ParkingManagerWebApp.Models.PriceControl.PriceControlModel>
+
+@{
+    ViewData["Title"] = "Preços";
+}
+
+<div class="container">
+
+    <h1 class="text-center pm-title">Tabela de Vigência de Preços</h1>
+
+    <div class="border pm-buttons-group">
+        <a role="button" class="btn btn-outline-primary" asp-action="NewPrice" asp-controller="PriceControl">
+            <i class="fas fa-plus"></i>
+            Cadastrar
+        </a>
+    </div>
+
+    <div class="pm-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Preço - Hora</th>
+                    <th scope="col" class="text-center">Preço - Hora Adicional</th>
+                    <th scope="col" class="text-center">Data de Início</th>
+                    <th scope="col" class="text-center">Data de Termino</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var priceControl in Model)
+                {
+                    <tr>
+                        <td class="text-right">
+                            @priceControl.Price.ToString("C")
+                        </td>
+
+                        <td class="text-right">
+                            @priceControl.AdditionalPrice.ToString("C")
+                        </td>
+
+                        <td class="text-right">
+                            @priceControl.InitialDate.ToShortDateString()
+                        </td>
+
+                        <td class="text-right">
+                            @priceControl.FinalDate.ToShortDateString()
+                        </td>
+
+                        <td class="text-center">
+                            @if (priceControl.IsCurrent)
+                            {
+                                <div data-content="Em vigência" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom">
+                                    <i class="fas fa-toggle-on"></i>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿@model ParkingManagerWebApp.Models.Home.HomeModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">
+                Parking Manager
+                <i class="fas fa-car-side fa-xs"></i>
+            </h1>
+            <p class="lead">Uma solução simples e eficaz para auxiliar seu negócio!</p>
+        </div>
+    </div>
+
+    @if (Model.HasPrices == false)
+    {
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-exclamation"></i>
+            Não há registros cadastrados no tabela de vigência de preços!
+        </div>
+    }
+
+</div>

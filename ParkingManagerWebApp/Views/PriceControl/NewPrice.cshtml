@@ -1,0 +1,41 @@
+﻿@model ParkingManagerWebApp.Models.PriceControl.PriceControlModel
+
+@{
+    ViewData["Title"] = "Cadastro de preço";
+}
+
+<div class="container">
+    <h1 class="text-center pm-title">Cadastro de valores do estacionamento</h1>
+
+    <form class="pm-form" asp-controller="PriceControl" asp-action="AddNewPrice" method="post">
+
+        <div class="form-group">
+            <label asp-for="InitialDate"></label>
+            <input class="form-control" type="date" asp-for="InitialDate" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FinalDate"></label>
+            <input class="form-control" type="date" asp-for="FinalDate" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <input class="form-control" asp-format="{0:C}" asp-for="Price" placeholder="0,00" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AdditionalPrice"></label>
+            <input class="form-control" asp-format="{0:C}" asp-for="AdditionalPrice" placeholder="0,00" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-outline-primary btn-lg" type="submit">
+                <i class="fas fa-save"></i>
+                Cadastrar
+            </button>
+        </div>
+
+
+    </form>
+</div>
