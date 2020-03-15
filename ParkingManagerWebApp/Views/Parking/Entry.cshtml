@@ -1,0 +1,31 @@
+﻿@model ParkingManagerWebApp.Models.Parking.ParkingEntryModel
+
+@{
+    ViewData["Title"] = "Entrada de Veículo";
+}
+
+<div class="container">
+    <h1 class="text-center pm-title">Registro de Entrada do Veículo</h1>
+
+    <form class="pm-form" method="post" asp-controller="Parking" asp-action="RegisterEntry">
+
+        <div class="form-group">
+            <label asp-for="VehiclePlate"></label>
+            <input class="form-control" type="text" asp-for="VehiclePlate" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Entry"></label>
+            <input class="form-control" type="datetime-local" asp-for="Entry" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-outline-primary btn-lg" type="submit">
+                <i class="fas fa-save"></i>
+                Registrar
+            </button>
+        </div>
+
+    </form>
+</div>
+

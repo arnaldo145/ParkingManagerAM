@@ -16,38 +16,31 @@ namespace ParkingManagerWebApp.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2");
 
-            modelBuilder.Entity("ParkingManagerWebApp.Models.ParkingOperations.VehicleEntryModel", b =>
+            modelBuilder.Entity("ParkingManagerWebApp.Models.Parking.ParkingStayModel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("OccurrenceDateTime")
+                    b.Property<TimeSpan>("Duration")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Entry")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("Exit")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("TotalValue")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("VehiclePlate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("VehicleEntry");
-                });
-
-            modelBuilder.Entity("ParkingManagerWebApp.Models.ParkingOperations.VehicleExitModel", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("OccurrenceDateTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("VehiclePlate")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VehicleExit");
+                    b.ToTable("TBParkingStay");
                 });
 
             modelBuilder.Entity("ParkingManagerWebApp.Models.PriceControl.PriceControlModel", b =>
@@ -70,7 +63,7 @@ namespace ParkingManagerWebApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PriceControl");
+                    b.ToTable("TBPriceControl");
                 });
 #pragma warning restore 612, 618
         }

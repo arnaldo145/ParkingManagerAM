@@ -1,0 +1,64 @@
+﻿@model List<ParkingManagerWebApp.Models.Parking.ParkingStayModel>
+
+@{
+    ViewData["Title"] = "Estacionamento";
+}
+
+<div class="container">
+    <h1 class="pm-title">Estacionamento</h1>
+
+    <div class="border pm-buttons-group">
+        <a role="button" class="btn btn-outline-primary" asp-action="Entry" asp-controller="Parking">
+            <i class="fas fa-door-open"></i>
+            Registrar entrada
+        </a>
+    </div>
+
+    <div class="pm-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Placa</th>
+                    <th class="text-center">Entrada</th>
+                    <th class="text-center">Saída</th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var parkingStay in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @parkingStay.VehiclePlate
+                        </td>
+
+                        <td class="text-right">
+                            @parkingStay.Entry
+                        </td>
+
+                        <td class="text-right">
+                            @if (parkingStay.Exit != null)
+                            {
+                                @parkingStay.Exit
+                            }
+                        </td>
+
+                        <td class="text-center">
+                            @if (parkingStay.Exit == null)
+                            {
+                                <a asp-action="Exit" asp-controller="Parking" asp-route-id="@parkingStay.Id">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Registrar saída
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

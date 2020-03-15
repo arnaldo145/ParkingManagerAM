@@ -1,0 +1,39 @@
+﻿@model ParkingManagerWebApp.Models.Parking.ParkingExitModel
+
+@{
+    ViewData["Title"] = "Saída de Veículo";
+}
+
+<div class="container">
+    <h1 class="text-center pm-title">Registro de Saída do Veículo</h1>
+
+    <div class="border pm-info-panel">
+        <div class="pm-info-span">
+            <span>Placa: <b>@Model.VehiclePlate</b></span>
+        </div>
+
+        <div class="pm-info-span">
+            <span> Entrada: <b>@Model.Entry</b></span>
+        </div>
+    </div>
+
+    <form class="pm-form" method="post" asp-controller="Parking" asp-action="RegisterExit">
+
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Entry)
+        @Html.HiddenFor(m => m.VehiclePlate)
+
+        <div class="form-group">
+            <label asp-for="Exit"></label>
+            <input class="form-control" type="datetime-local" asp-for="Exit" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-outline-primary btn-lg" type="submit">
+                <i class="fas fa-save"></i>
+                Registrar
+            </button>
+        </div>
+    </form>
+</div>
+

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ParkingManagerWebApp.Models.PriceControl
 {
@@ -25,11 +26,12 @@ namespace ParkingManagerWebApp.Models.PriceControl
         [Required]
         public double AdditionalPrice { get; set; }
 
+        [NotMapped]
         public bool IsCurrent
         {
             get
             {
-                var now = DateTime.Now;
+                DateTime now = DateTime.Now;
                 return now.Date >= InitialDate.Date && now.Date <= FinalDate.Date;
             }
         }
