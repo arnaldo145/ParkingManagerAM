@@ -22,9 +22,6 @@ namespace ParkingManagerWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Entry")
                         .HasColumnType("TEXT");
 
@@ -36,7 +33,8 @@ namespace ParkingManagerWebApp.Migrations
 
                     b.Property<string>("VehiclePlate")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(8);
 
                     b.HasKey("Id");
 

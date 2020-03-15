@@ -6,7 +6,7 @@ namespace ParkingManagerWebApp.Models.Parking
     public class ParkingEntryModel
     {
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         [Display(Name = "Placa do Veículo")]
         public string VehiclePlate { get; set; }
 

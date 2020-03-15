@@ -21,7 +21,7 @@
                     <th class="text-center">Placa</th>
                     <th class="text-center">Entrada</th>
                     <th class="text-center">Saída</th>
-                    <th class="text-center"></th>
+                    <th class="text-center">Valor Total</th>
                 </tr>
             </thead>
 
@@ -45,13 +45,17 @@
                             }
                         </td>
 
-                        <td class="text-center">
+                        <td class="text-right">
                             @if (parkingStay.Exit == null)
                             {
                                 <a asp-action="Exit" asp-controller="Parking" asp-route-id="@parkingStay.Id">
                                     <i class="fas fa-sign-out-alt"></i>
                                     Registrar saída
                                 </a>
+                            }
+                            else
+                            {
+                                <span class="bold">@parkingStay.TotalValue.ToString("C")</span>
                             }
                         </td>
                     </tr>

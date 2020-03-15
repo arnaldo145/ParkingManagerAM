@@ -9,7 +9,7 @@ namespace ParkingManagerWebApp.Models.Parking
         public long Id { get; set; }
 
         [Required]
-        [StringLength(7)]
+        [StringLength(8)]
         [Display(Name = "Placa do Veículo")]
         public string VehiclePlate { get; set; }
 
@@ -21,11 +21,12 @@ namespace ParkingManagerWebApp.Models.Parking
         [DataType(DataType.DateTime)]
         public DateTime? Exit { get; set; }
 
-        [Display(Name = "Duração")]
-        public TimeSpan Duration { get; set; }
-
         [Display(Name = "Valor Total")]
         public double TotalValue { get; set; }
+
+        [Display(Name = "Duração")]
+        [NotMapped]
+        public TimeSpan Duration => Exit.HasValue ? Exit.Value - Entry : TimeSpan.Zero;
 
         [Display(Name = "Preço da hora")]
         [NotMapped]

@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web Projects", "Web Projects", "{C25228EE-7B82-4EA3-8272-4626B01F9889}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class Library Projects", "Class Library Projects", "{966A19F4-BDC4-4CE5-A5C4-48A1C5BAE66D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingManagerWebApp", "ParkingManagerWebApp\ParkingManagerWebApp.csproj", "{D7A23405-F826-4AC1-8B02-B5192973E1AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParkingManagerWebApp", "ParkingManagerWebApp\ParkingManagerWebApp.csproj", "{D7A23405-F826-4AC1-8B02-B5192973E1AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

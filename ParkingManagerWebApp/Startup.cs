@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ParkingManagerWebApp.Business;
 using ParkingManagerWebApp.Models;
 
 namespace ParkingManagerWebApp
@@ -27,6 +28,8 @@ namespace ParkingManagerWebApp
             services.AddDbContext<ParkingManagerContext>(options =>
                 options.UseSqlite(connection)
             );
+
+            services.AddSingleton<IPriceCalculator, PriceCalculator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

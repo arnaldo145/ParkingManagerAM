@@ -13,10 +13,9 @@ namespace ParkingManagerWebApp.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    VehiclePlate = table.Column<string>(nullable: false),
+                    VehiclePlate = table.Column<string>(maxLength: 8, nullable: false),
                     Entry = table.Column<DateTime>(nullable: false),
                     Exit = table.Column<DateTime>(nullable: true),
-                    Duration = table.Column<TimeSpan>(nullable: false),
                     TotalValue = table.Column<double>(nullable: false)
                 },
                 constraints: table =>

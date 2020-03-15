@@ -1,4 +1,5 @@
-﻿
+﻿@model ParkingManagerWebApp.Models.Parking.ParkingStayModel
+
 @{
     ViewData["Title"] = "Payment";
 }
@@ -6,7 +7,53 @@
 <div class="container">
     <h1 class="text-center pm-title">Pagamento</h1>
 
-    <div>
-
+    <div class="border pm-buttons-group">
+        <a role="button" class="btn btn-outline-primary" asp-action="Index" asp-controller="Parking">
+            <i class="fas fa-door-open"></i>
+            Retornar ao Estacionamento
+        </a>
     </div>
+
+    <div class="pm-table">
+        <table class="table border">
+            <tbody>
+                <tr>
+                    <th scope="row">Placa do Veículo</th>
+                    <td><span class="font-weight-bold">@Model.VehiclePlate</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Entrada</th>
+                    <td><span>@Model.Entry</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Saída</th>
+                    <td><span>@Model.Exit.Value</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Preço da Hora</th>
+                    <td><span>@Model.CurrentPrice.ToString("C")</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Preço da Hora Adicional</th>
+                    <td><span>@Model.CurrentAdditionalPrice.ToString("C")</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Duração</th>
+                    <td><span>@Math.Round(Model.Duration.TotalHours) horas</span></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Valor a pagar</th>
+                    <td><span class="font-weight-bold">@Model.TotalValue.ToString("C")</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 </div>

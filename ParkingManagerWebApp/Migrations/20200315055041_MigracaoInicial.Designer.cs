@@ -9,7 +9,7 @@ using ParkingManagerWebApp.Models;
 namespace ParkingManagerWebApp.Migrations
 {
     [DbContext(typeof(ParkingManagerContext))]
-    [Migration("20200315035706_MigracaoInicial")]
+    [Migration("20200315055041_MigracaoInicial")]
     partial class MigracaoInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,9 +24,6 @@ namespace ParkingManagerWebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Entry")
                         .HasColumnType("TEXT");
 
@@ -38,7 +35,8 @@ namespace ParkingManagerWebApp.Migrations
 
                     b.Property<string>("VehiclePlate")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(8);
 
                     b.HasKey("Id");
 
